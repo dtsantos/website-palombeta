@@ -1,0 +1,33 @@
+application: palombetaparaty
+version: 1
+runtime: python27
+threadsafe: false
+api_version: 1
+
+
+
+handlers:
+
+- url: /(.*\.(gif|png|jpg|ico|js|css|ttf|eot|xml))
+  static_files: \1
+  upload: (.*\.(gif|png|jpg|ico|js|css|ttf|eot|xml))
+
+- url: /robots.txt
+  static_files: robots.txt
+  upload: robots.txt 
+
+- url: /contato.html
+  script: contato.app
+
+- url: /confirmacao.html
+  script: contato.app
+  
+- url: /contato.en.html
+  script: contatoen.app
+
+- url: /confirmacao.en.html
+  script: contatoen.app
+
+- url: .*
+  script: main.py
+
